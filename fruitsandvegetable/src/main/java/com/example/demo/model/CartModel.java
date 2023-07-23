@@ -1,24 +1,29 @@
 package com.example.demo.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Setter;
 
 @Entity
+@Setter
+
 public class CartModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartId;
 
-	private int userId;
-
-	private int productId;
-
 	private int quantity;
 
 	private int price;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private UsersModel user;
 
 	public int getCartId() {
 		return cartId;
@@ -28,21 +33,6 @@ public class CartModel {
 		this.cartId = cartId;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
 
 	public int getQuantity() {
 		return quantity;
@@ -63,12 +53,6 @@ public class CartModel {
 	public CartModel() {
 		super();
 
-	}
-
-	@Override
-	public String toString() {
-		return "CartModel [cartId=" + cartId + ", userId=" + userId + ", productId=" + productId + ", quantity="
-				+ quantity + ", price=" + price + "]";
 	}
 
 }

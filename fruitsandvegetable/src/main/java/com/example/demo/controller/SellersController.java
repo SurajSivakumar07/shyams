@@ -9,29 +9,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
- 
-import com.example.demo.dto.FruitsDto;
-import com.example.demo.model.FruitsModel;
-import com.example.demo.service.FruitsService;
-
+import com.example.demo.dto.SellersDto;
+import com.example.demo.model.SellerModel;
+import com.example.demo.service.SellersService;
 
 @RestController
-public class FruitsDisplayController {
+
+public class SellersController {
 	
 	@Autowired
-	FruitsService service;
-	
+	SellersService service;
 	
 	@CrossOrigin
-	@GetMapping("/")
-	public List<FruitsModel> getData() {
+	@GetMapping("/sellers")
+	public List<SellerModel> getData(){
 		return service.getData();
 	}
-	
-	@PostMapping("/")
-	public String getData(@RequestBody FruitsDto fruits) {
-		return service.addData(fruits);
+	@CrossOrigin
+	@PostMapping("/sellers")
+	public String addData(@RequestBody SellersDto seller) {
+		return service.addData(seller);
 	}
 	
-	
+
 }

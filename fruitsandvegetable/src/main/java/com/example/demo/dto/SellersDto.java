@@ -11,18 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FruitsDto {
-	
-	private String name;
-	
-	private String sellerName;
-	
+public class SellersDto {
+	private String sellingType;
 	private String img;
-	
-	private String category;
-	
-	private String type;
- 
 	private int price;
-
+	private String name;
 }

@@ -14,7 +14,7 @@ public class FruitsModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-@JsonIgnore
+	@JsonIgnore
 	private int  id;
  
 	private String name;
